@@ -2,17 +2,12 @@ const Notification = ({ message, type }) => {
     if (message === null){
         return null
     }
-    const notificationStyle = {
-    color: type === 'success' ? 'green' : 'red',
-    background: '#f0f0f0',
-    fontSize: 16,
-    border: `2px solid ${type === 'success' ? 'green' : 'red'}`,
-    borderRadius: 5,
-    padding: 10,
-    marginBottom: 20
-  }
+    const color = 
+        type === 'error' 
+            ? 'bg-red-100 text-red-700 border-red-400'
+            : 'bg-green-100 text-green-700 border-green-400'
     return(
-        <div style={notificationStyle}>
+        <div className={`border ${color} px-4 py-3 rounded-md mb-4 text-center font-medium`}>
             {message}
         </div>
     )
